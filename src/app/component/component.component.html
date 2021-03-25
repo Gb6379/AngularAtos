@@ -1,11 +1,13 @@
+
 <form>
   <ul *ngIf="idAlbum == null">
     <li *ngFor="let a of albums">
-        <p><b>{{a.title}} : {{a.id}} </b></p>
+        <p><b>Title: {{a.title}} : Id: {{a.id}} </b></p>
         <button type="submit" (click)="select(a)">See album</button>
     </li>
   </ul>
-  <button type="submit" (click)="clean()"></button>
+  <h1>Album id ({{idAlbum}})</h1>
+  <button type="submit" (click)="back()">Back from</button>
   <ul>
     <app-component2 *ngIf="idAlbum != null" [idAlbum]="this.idAlbum"></app-component2>
   </ul>

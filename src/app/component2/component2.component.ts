@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Photo } from '../models/Photo.model';
 import { ServiceService } from '../services/service.service';
 
@@ -11,11 +11,14 @@ export class Component2Component implements OnInit {
 
   photos:Photo;
   erro:any;
+  @Input() idAlbum:number;
 
-  constructor(private photoService: ServiceService) { }
+  constructor(private photoService: ServiceService) {
+    this.getter();
+  }
 
   getter() {
-    this.photoService.getAlbums().subscribe(
+    this.photoService.getPhotos().subscribe(
       (data:Photo) => {
         this.photos = data;
 

@@ -40,7 +40,7 @@ export class ComponentComponent implements OnInit {
     this.idAlbum = album.id;
   }
 
-  clean(){
+  back(){
     this.idAlbum = null;
   }
 
