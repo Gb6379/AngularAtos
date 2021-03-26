@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Photo } from '../models/Photo.model';
 import { ServiceService } from '../services/service.service';
 
@@ -12,22 +13,24 @@ export class Component2Component implements OnInit {
   photos:Photo;
   erro:any;
   @Input() idAlbum:number;
+  id:string;
 
-  constructor(private photoService: ServiceService) {
+  constructor(private photoService: ServiceService) {//, private activateRoute: ActivatedRoute) {//activateRoute is used on helping to pass the parameter on the query string
+    //this.id = this.activateRoute.snapshot.queryParams["albumId"];
     this.getter();
   }
 
   getter() {
     this.photoService.getPhotos().subscribe(
       (data:Photo) => {
+
         this.photos = data;
 
-        console.log("waht's in data", data);
-        console.log("this.photos", this.photos);
       },
       (error:any) => {
+
         this.erro = error;
-        console.log("Error", this.erro);
+
       }
     )
   }

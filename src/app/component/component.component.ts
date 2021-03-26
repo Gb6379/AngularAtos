@@ -20,15 +20,15 @@ export class ComponentComponent implements OnInit {
 
    getter() {
      this.albumService.getAlbums().subscribe(
-       (data:Album) => {
+       (data:Album) =>
+       {
          this.albums = data;
 
-         console.log("waht's in data", data);
-         console.log("this.albums", this.albums);
        },
        (error:any) => {
+
          this.erro = error;
-         console.log("Error", this.erro);
+
        }
      )
    }

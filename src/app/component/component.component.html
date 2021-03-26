@@ -1,5 +1,5 @@
 
-<form>
+<div>
   <ul *ngIf="idAlbum == null">
     <li *ngFor="let a of albums">
         <p><b>Title: {{a.title}} : Id: {{a.id}} </b></p>
@@ -12,4 +12,4 @@
     <app-component2 *ngIf="idAlbum != null" [idAlbum]="this.idAlbum"></app-component2>
   </ul>
 
-</form>
+</div>

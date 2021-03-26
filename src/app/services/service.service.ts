@@ -9,11 +9,15 @@ export class ServiceService {
 
   constructor(private http:HttpClient) { }
 
-  getPhotos():Observable<any> {
+  public getPhotos():Observable<any> {
     return this.http.get("https://jsonplaceholder.typicode.com/photos");
   }
 
-  getAlbums():Observable<any> {
+  public getAlbums():Observable<any> {
     return this.http.get("https://jsonplaceholder.typicode.com/albums");
+  }
+
+  public getPhotosById(id:number){
+    return this.http.get("https://jsonplaceholder.typicode.com/albums?albumId="+id);
   }
 }
