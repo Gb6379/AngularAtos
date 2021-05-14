@@ -17,7 +17,7 @@ export class ServiceService {
     return this.http.get("https://jsonplaceholder.typicode.com/albums");
   }
 
-  public getPhotosById(id:number){
+  public getPhotosById(id:number){//this function suits the query string scenario
     return this.http.get("https://jsonplaceholder.typicode.com/albums?albumId="+id);
   }
 }
