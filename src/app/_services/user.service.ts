@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 const API_URL = 'http://localhost:8080/api/test';
-const API_URL2 = 'http://localhost:8080/api/user';
+const API_URL2 = 'http://localhost:8080/api/contacts';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type' : 'application/json'})
@@ -13,6 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
+
 
   constructor(private http: HttpClient) { }
 
@@ -32,22 +33,33 @@ export class UserService {
     return this.http.get(API_URL + 'admin', {responseType: 'text'});
   }
 
-  getAllUsers() : Observable<any> {
-    return this.http.get(API_URL2 , {responseType: 'text'});
+  getAllContacts() : Observable<any> {
+    return this.http.get(API_URL2);
   }
 
-  saveUser(username: string, password: string) : Observable<any> {
-    return this.http.post(API_URL2 , {
-      username,
-      password
-    }, httpOptions);
+  getContactById(id : any): Observable<any> {
+    return this.http.get(`${API_URL2}/${id}`, {responseType: 'text'});
   }
 
-  updateUser(id: number) : Observable<any>{
+  saveContact(contact : Object) : Observable<any> {
+    return this.http.post(API_URL2 + '/save' , contact
+    , httpOptions);
+  }
+
+  updateContact(id: any ,contact : Object) : Observable<any> {
+    return this.http.put(`${API_URL2}/${id}`, contact
+    , httpOptions);
+  }
+
+  deleteContact(id : any): Observable<any> {
+    return this.http.delete(`${API_URL2}/${id}`, {responseType: 'text'})
+  }
+
+/*  updateUser(id: number) : Observable<any>{
     return this.http.put(API_URL + '/${id}', {responseType: 'text'})
   }
 
   deleteUser(id: number): Observable<any> {
     return this.http.delete(API_URL + '/${id}', {responseType: 'text'})
-  }
+  }*/
 }

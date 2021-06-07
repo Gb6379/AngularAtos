@@ -30,6 +30,6 @@ export class BoardAdminComponent implements OnInit {
   }
 
   reloadData() {
-    this.currentUser = this.userService.getAllUsers();
+    //this.currentUser = this.userService.getAllUsers();
   }
 }

@@ -1,0 +1,67 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [ngModel]="currentContact.name"
+          name="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">LastName</label>
+        <input
+          class="form-control"
+          id="lastName"
+          required
+          [ngModel]="currentContact.lastName"
+          name="lastName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="birthDate">birthDate</label>
+        <input
+          class="form-control"
+          id="birthDate"
+          required
+          [ngModel]="currentContact.birthDate"
+          name="birthDate"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="kinship">kinship</label>
+        <input
+          class="form-control"
+          id="kinship"
+          required
+          [ngModel]="currentContact.kinship"
+          name="kinship"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phones">phones</label>
+        <input
+          class="form-control"
+          id="phones"
+          required
+          [ngModel]="currentContact.phones"
+          name="phones"
+        />
+      </div>
+      <div *ngFor="let c of currentContact">
+        <button (click)="update()" class="btn btn-success">Submit</button>
+     </div>
+    </div>
+
+
+</div>
+
+
